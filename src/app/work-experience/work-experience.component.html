@@ -1,0 +1,13 @@
+<div class="container">
+    <header>
+        <span><h2>{{jobName | titlecase}}</h2><h5>{{date | titlecase}}</h5></span>
+        <h4>{{company | titlecase}}</h4>
+    </header>
+    <article class="content">
+        <p class="role_description">{{description}}</p>
+        <h3 class="achievements">Achievements: </h3>
+        <p class="achievements">{{achievements}}</p>
+        <h3>Technologies used: </h3>
+        <div class="tech"><p class="el" *ngFor="let el of tech">{{el | titlecase}}</p></div>
+    </article>
+</div>

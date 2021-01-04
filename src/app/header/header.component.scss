@@ -1,0 +1,53 @@
+.container {
+    background-color: #343a40;
+    display: grid;
+    grid-template-columns: 20% 50% 30%;
+    color: white;
+    padding: 0;
+    img {
+        width: 200px;
+    }
+    .contact {
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .social {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    
+    span {
+        display: flex;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 20px;
+        p {
+            margin: 0;
+        }
+        fa-icon {
+            margin-right: 0.5em;
+            width: 1em;
+            text-align: center;
+        }
+    }
+    a {
+        color: #538bc7;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        display: flex;
+        justify-content: space-evenly;
+        img {
+            display: none;
+        }
+    }
+}
+@media screen and (max-width: 576px) {
+    span {
+        font-size: 12px!important;
+    }
+}

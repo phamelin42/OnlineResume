@@ -1,0 +1,44 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+<div #container class="container">
+  <header class="header">
+    <app-header></app-header>
+  </header>
+  
+  <section class="summary">
+    <h1>Career summary</h1>
+    <p>I am a self taught web developer with an experience of 3 years. I started as a simple integrator and i'm now focused on working with the framework Angular.<br>
+      I have 2 years of experience in Angular and i'm confident in my capability to develop organized and structured user interface using NgRx and Angular.<br>
+      My main quality as a developer would be the organization and documentation I'm always doing when starting a project.<br>
+      Driven by the desire to learn more and further complete my knowledge, I am used to pressure and tight deadlines, I develop even better under some stress.<br>
+      Working with other developers and professional is a pleasure, I am pretty social and i'm sure I can fit in your team.
+    </p>
+  </section>
+  
+  <section class="content">
+    <article class="experience">
+      <h1>Work Experience</h1>
+      <ng-container *ngFor="let work of works">
+        <app-work-experience [jobName]="work.jobName"
+        [company]="work.company"
+        [date]="work.date"
+        [description]="work.description"
+        [achievements]="work.achievements"
+        [tech]="work.tech"
+        ></app-work-experience>
+      </ng-container>
+    </article>
+  
+    <aside class="aside">
+      <h1>Skills</h1>
+      <app-skills [skills]="skills"></app-skills>
+      <h1>Language</h1>
+      <app-language></app-language>
+      <!-- <h1>Education</h1>
+      <app-education></app-education> -->
+      <h1>Hobbies</h1>
+      <app-hobbies></app-hobbies>
+    </aside>
+  </section>
+</div>
+
+<button (click)="download(container)">Download</button>

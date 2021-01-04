@@ -1,0 +1,66 @@
+.container {
+    box-shadow: 1px 1px 5px #838c948f;
+    margin: 0 auto;
+    padding: 0;
+    h1 {
+        text-transform: uppercase;
+        color: black;
+        width: 100%;
+        &::before {
+            content:" ";
+            position: absolute;
+            border-bottom: 1px solid #538bc7;
+            width: 100%;
+            height: 1.2em;
+        }
+    }
+    .summary, .content {
+        margin: 1em;
+        position: relative;
+        overflow: hidden;
+    }
+    .content {
+        display: grid;
+        grid-template-columns: 70% 25%;
+        grid-gap: 2em;
+        padding-bottom: 2em;
+        .experience {
+            position: relative;
+            overflow: hidden;
+        }
+        .aside {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+button {
+    background-color: #538bc7;
+    padding: 0.2em 0.8em;
+    border: 1px solid #538bc7;
+    outline: none;
+    color: white;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    font-size: 24px;
+    border-radius: 3px;
+}
+
+@media screen and (max-width: 576px) {
+    .content {
+        grid-gap: 1em!important;
+    }
+    .content, .summary {
+        margin: 0.2em!important;
+    }
+    .summary {
+        p {
+            font-size: 12px;
+        }
+    }
+    button {
+        font-size: 18px;
+    }
+}

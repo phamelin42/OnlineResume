@@ -1,0 +1,57 @@
+.container {
+    padding-left: 2.5em;
+    position: relative;
+    &::before {
+        content: "";
+        display: inline-block;
+        width: 3px;
+        height: 100%;
+        background: #c3d7eb;
+        left: 15px;
+        top: 10px;
+        position: absolute;
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        &::before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            left: 9px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border: 4px solid #538bc7;
+            background: white;
+            border-radius: 50%;
+        }
+        span {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    .tech {
+        display: flex;
+        flex-wrap: wrap;
+        .el {
+            margin-right: 5px;
+            width: min-content;
+            background-color: #538bc7;
+            color: white;
+            border-radius: 2em;
+            padding: 5px 10px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 576px) {
+    p {
+        font-size: 12px;
+    }
+    .achievements {
+        display: none;
+    }
+}
