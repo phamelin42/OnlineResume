@@ -41,4 +41,5 @@
   </section>
 </div>
 
-<button (click)="download(container)">Download</button>
+<button *ngIf="!this.loading" (click)="download(container)">Download</button>
+<button *ngIf="this.loading"><div class="loader"></div></button>

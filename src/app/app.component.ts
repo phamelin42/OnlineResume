@@ -10,6 +10,7 @@ import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent {
   title = 'OnlineResume';
+  public loading: boolean = false;
   works: Array<{jobName: string, company: string, date: string, description: string, achievements: string, tech: Array<string>}> = [
     {
       jobName: 'Angular Developer',
@@ -72,30 +73,33 @@ export class AppComponent {
   ];
   faArrowDown = faArrowCircleDown;
 
-  download(data: HTMLElement) {
-    html2canvas(data, {
+  createPDF(data: HTMLElement): Promise<any> {
+    return html2canvas(data, {
       scrollY: -window.scrollY,
       scale: 2,
     }).then((canvas) => {
       let dataURL = canvas.toDataURL('image/jpeg', 2.0);
-      const doc = new jsPDF();
-      let width = doc.internal.pageSize.getWidth()
-      let height = doc.internal.pageSize.getHeight()
+      return new Promise(resolve => {
+        
+        const doc = new jsPDF();
+        let width = doc.internal.pageSize.getWidth()
+        let height = doc.internal.pageSize.getHeight()
+        let widthRatio = width / canvas.width
+        let heightRatio = height / canvas.height
+        let ratio = widthRatio > heightRatio ? heightRatio : widthRatio
 
-      let widthRatio = width / canvas.width
-      let heightRatio = height / canvas.height
-
-      let ratio = widthRatio > heightRatio ? heightRatio : widthRatio
-
-      doc.addImage(
-        dataURL,
-        'JPEG',
-        0,
-        0,
-        canvas.width * ratio,
-        canvas.height * ratio,
-      )
-      doc.save('Phamelin_Resume.pdf');
+        doc.addImage(dataURL, 'JPEG', 0, 0, canvas.width * ratio, canvas.height * ratio)
+        doc.text('This PDF was generated from https://www.online-resume.phamelin.fr/', 20, canvas.height * ratio + 20);
+        doc.save('Phamelin_Resume.pdf');
+        setTimeout(()=>{
+          resolve('resolved');
+          },3000)
+      });
     });
+  }
+
+  download(data: HTMLElement) {
+    this.loading = true;
+    this.createPDF(data).then(() => this.loading = false)
   }
 }
