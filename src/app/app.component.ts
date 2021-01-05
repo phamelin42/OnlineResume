@@ -10,8 +10,9 @@ import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent {
   title = 'OnlineResume';
+  public lang: string = 'ENG';
   public loading: boolean = false;
-  works: Array<{jobName: string, company: string, date: string, description: string, achievements: string, tech: Array<string>}> = [
+  public works: Array<{jobName: string, company: string, date: string, description: string, achievements: string, tech: Array<string>}> = [
     {
       jobName: 'Angular Developer',
       company: 'MGI Digital Technology',
@@ -27,9 +28,31 @@ export class AppComponent {
       company: 'Meltdown Esports Bar',
       date: 'June 2018 - December 2018',
       description: 'In the context of my studies in school 42, I did an internship for Meltdown esports bar. Meltdown is a company owning many bars, worldwide, specialized in gaming. Each bar possess computers and console so you can play or watch a tournament while enjoying a beer.\n\
-      They needed someone to help developing trible.club (now closed), summerfestival.meltdown.bar, a temporary website, and finally, redesigning and redeveloping their old website, meltdown.bar. For 6 month I worked in close collaboration with designers, community managers and developers, to make the best possible website.',
+      They needed someone to help developing tribe.club (now closed), summerfestival.meltdown.bar, a temporary website, and finally, redesigning and redeveloping their old website, meltdown.bar. For 6 month I worked in close collaboration with designers, community managers and developers, to make the best possible website.',
       achievements: 'My biggest achievement during that internship definitely was summerfestival.meltdown.bar. In collaboration with League of Legends, Meltdown organized a charity event for Make-A-Wish. For a whole week, events were happening in bars and some of the earning was donated to Make-A-Wish.\n\
       Some streamers were also casting for the event. During that week, people could also donate on the website, wich was promoted on League Of Legends launcher. It was one of my first website, but it\'s definitely the one that got the most visit, and working with League Of Legends and streamers for a charity was very rewarding !',
+      tech: ['Javascript', 'HTML', 'CSS', 'NodeJS', 'Git']
+    },
+  ];
+  public travaux: Array<{jobName: string, company: string, date: string, description: string, achievements: string, tech: Array<string>}> = [
+    {
+      jobName: 'Développeur Angular',
+      company: 'MGI Digital Technology',
+      date: 'Avr 2019 - Maintenant',
+      description: 'MGI est spécialisé dans la construction d\'imprantes industrielles pour les Arts Graphiques, vous pouvez en apprendre plus sur leur site. Début 2019, j\'ai rejoint une équipe de 2 développeurs back et un développeur front, avec pour objectif de designer et créer une nouvelle IHM pour toutes les machines produites par MGI.\n\
+      Une version plus ancienne de cette IHM existait déjà mais elle n\'était pas en Angular, nous avons commencé le projet de 0 et ce dernier possède maintenant plus de 50 pages, 200 composants et un back end solide.',
+      achievements: 'Mon plus gros challenge et ma plus grande fierté est une page en particulier. L\'utilisateur devait être capable de visualiser facilement toutes les têtes d\'impression présente sur la machine, ainsi que leur état et leur calibration. Je devais donc développer un écran où l\'utilisateur pourrait se déplacer et zoomer sur une grille infinie, sélectionner une ou plusieurs têtes, et les déplacer sur cette grille. \n\
+      C\'était un challenge difficile car il a fallu travailler avec des matrices et des SVG pour la grille, et que je devais parfaire ma compréhension de RxJS pour gérer les actions de l\'utilisateur',
+      tech: ['Angular', 'Ngrx', 'RxJs', 'HTML', 'CSS', 'Git', 'TypeScript']
+    },
+    {
+      jobName: 'Intégrateur web - Stage',
+      company: 'Meltdown Esports Bar',
+      date: 'Juin 2018 - Décembre 2018',
+      description: 'Dans le context de mes études à l\'école 42, j\'ai réalisé un stage pour les bars Meltdown. Meltdown, c\'est une chaîne de bar gaming, exporté partout dans le monde. Chaque bar possède des ordinateurs et des consoles, afin que le client puisse jouer ou regarder un tournoi en profitant d\'une boisson\n\
+      Ils avaient besoin d\'aide pour développer le site tribe.club, summerfestival.meltdown.bar, un site temporaire, et finalement, repensé et redéveloppé leur ancien site, meltdown.bar. Pendant 6 mois, j\'ai travaillé en étroite collaboration avec des désigneurs, community manager et développeurs afin de faire le meilleur site possible.',
+      achievements: 'Ma plus grande fierté pendant ce stage était sans conteste le site summerfestival.meltdown.bar. En collaboration avec League Of Legends, Make-A-Wish, et des streameurs français, les bars Meltdown ont organisé un évenement carritatif durant lequel une partie des gains du bar étaient reversé à l\'association.\n\
+      Pendant cet évenement, les gens pouvaient aussi faire des donations sur le site internet summerfestival.meltdown.bar, et ce dernier a été mis en avant sur le launcher League Of Legends, dans les bars, et sur différents stream. C\'était un de mes premiers sites internet, et probablement celui qui comptabilise le plus de visite. De plus, travailler pour une association caritative était très satisfaisant !',
       tech: ['Javascript', 'HTML', 'CSS', 'NodeJS', 'Git']
     },
   ];
@@ -98,8 +121,13 @@ export class AppComponent {
     });
   }
 
-  download(data: HTMLElement) {
+  download(data: HTMLElement): void {
     this.loading = true;
     this.createPDF(data).then(() => this.loading = false)
+  }
+
+  setLang(newLang: string): void {
+    this.works = (newLang === 'FR') ? this.travaux : this.works;
+    this.lang = newLang;
   }
 }

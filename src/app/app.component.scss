@@ -2,6 +2,9 @@
     box-shadow: 1px 1px 5px #838c948f;
     margin: 0 auto;
     padding: 0;
+    .header {
+      position: relative;
+    }
     h1 {
         text-transform: uppercase;
         color: black;
@@ -48,7 +51,31 @@ button {
     border-radius: 3px;
 }
 
+.lang {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: white;
+  display: flex;
+  cursor: pointer;
+  p {
+    margin-right: 15px;
+  }
+}
+
+.selected {
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 576px) {
+  .lang {
+    font-size: 10px;
+    p {
+      margin-right: 5px;
+    }
+  }
     .content {
         grid-gap: 1em!important;
     }

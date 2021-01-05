@@ -5,9 +5,11 @@
     </header>
     <article class="content">
         <p class="role_description">{{description}}</p>
-        <h3 class="achievements">Achievements: </h3>
+        <h3 *ngIf="lang === 'ENG'" class="achievements">Achievements: </h3>
+        <h3 *ngIf="lang === 'FR'" class="achievements">Challenge: </h3>
         <p class="achievements">{{achievements}}</p>
-        <h3>Technologies used: </h3>
+        <h3 *ngIf="lang === 'ENG'" >Technologies used: </h3>
+        <h3 *ngIf="lang === 'FR'" >Technologies utilisées: </h3>
         <div class="tech"><p class="el" *ngFor="let el of tech">{{el | titlecase}}</p></div>
     </article>
 </div>
