@@ -15,8 +15,18 @@ export class AppComponent {
   public works: Array<{jobName: string, company: string, date: string, description: string, achievements: string, tech: Array<string>}> = [
     {
       jobName: 'Angular Developer',
+      company: 'Arteris IP',
+      date: 'May 2021 - Now',
+      description: 'Arteris IP is in the industry of Semiconductors and Electronic Design Automation (EDA). In 2021, I joined a small team of 6 developers to build a new software from scratch using Angular 10. I mainly focused on building my skills in architecture, pattern designs and unit/e2e tests. \n\
+      Creating the software from scratch was a huge challenge and allowed me to deepend my understanding of building a good application from start to avoid futur problems.',
+      achievements: 'I learned and accomplished a lot during those two years at Arteris, but I mostly honed my skills in front-end and am now confident in being responsible for the front-end of an application, and even managing a small team of front-end developers as I had to guide an internship during 6 month.\n\
+      If i had to chose, my biggest achievements would be to have recreated from scratch, to better fit our need, many angular material components, such as a complicated table, a tree explorer or a file-upload drag and drop zone.',
+      tech: ['Angular', 'Ngrx', 'RxJs', 'HTML', 'CSS', 'Git', 'TypeScript']
+    },
+    {
+      jobName: 'Angular Developer',
       company: 'MGI Digital Technology',
-      date: 'Apr 2019 - Now',
+      date: 'Apr 2019 - Apr 2021',
       description: 'MGI is specialized in manufacturing industrial printers for Graphic arts, you can learn more on their website. Start of 2019, I joined a team of 2 back developer and one front developer with the goal of designing and creating a new HCI for all the machines produced by MGI.\n\
       An older version already existed, but nothing was already done in Angular, we started together from scratch and we now have more than 50 pages, 200 components and a solid back end.',
       achievements: 'When thinking about my biggest achievement, there is one page that come to my mind. The user needed to visualize all the printhead available on the machine, their state, and their calibration. I had to develop a screen, where the user could, pan and zoom (tactil and mouse) on an infinite grid, select heads and move them on that same grid.\n\
@@ -35,6 +45,16 @@ export class AppComponent {
     },
   ];
   public travaux: Array<{jobName: string, company: string, date: string, description: string, achievements: string, tech: Array<string>}> = [
+    {
+      jobName: 'Développeur Angular',
+      company: 'Arteris IP',
+      date: 'Mai 2021 - Maintenant',
+      description: 'Arteris IP est dans l\'industrie du semi-conducteur et des Electronic Design Automation (EDA). En 2021, j\'ai rejoint une petite équipe de 6 développeurs pour construire depuis zéro un nouveau logiciel utilisant Angular 10. Je me suis surtout concentré sur le polissage de mes compétences en architecture, design pattern et tests unitaires / e2e. \n\
+      Créer le logiciel depuis zéro a été un énorme challenge et m\'a permis de renforcer ma compréhension et ma capacité à développer une bonne application dés le début pour éviter de futurs complications.',
+      achievements: 'J\'ai appris et accompli beaucoup durant ces deux années chez Arteris, mais j\'ai surtout pu améliorer mes compétences en Front-End et je suis maintenant confiant en ma capacité à devenir responsable du front-end d\'un logiciel, voir même manager une petite équipe de développeurs Front-End, car pendant ces deux ans, j\'ai formé et me suis occupé pendant 6 mois d\'un stagiaire.\n\
+      Si je devais choisir, mes plus grands accomplissements seraient d\'avoir recréer, from scratch, et pour correspondre au mieux à nos besoins, plusieurs composants Angular Material comme une table complexe, un explorateur de fichier en arbre, ou une zone d\'upload de fichier et dossiers supportant le drag and drop.',
+      tech: ['Angular', 'Ngrx', 'RxJs', 'HTML', 'CSS', 'Git', 'TypeScript']
+    },
     {
       jobName: 'Développeur Angular',
       company: 'MGI Digital Technology',
@@ -59,15 +79,23 @@ export class AppComponent {
   skills: Array<{name: string, value: number}> = [
     {
       name: 'Angular',
-      value: 70,
+      value: 90,
+    },
+    {
+      name: 'Jest',
+      value: 60,
+    },
+    {
+      name: 'Unit testing',
+      value: 60,
     },
     {
       name: 'Typescript',
-      value: 70,
+      value: 90,
     },
     {
       name: 'Javascript',
-      value: 70,
+      value: 90,
     },
     {
       name: 'NgRx',
@@ -75,7 +103,7 @@ export class AppComponent {
     },
     {
       name: 'RxJS',
-      value: 50,
+      value: 70,
     },
     {
       name: 'Ramda',
@@ -83,11 +111,11 @@ export class AppComponent {
     },
     {
       name: 'HTML',
-      value: 90,
+      value: 100,
     },
     {
       name: 'CSS',
-      value: 80,
+      value: 90,
     },
     {
       name: 'Git',
