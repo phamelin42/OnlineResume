@@ -21,7 +21,7 @@ export class AppComponent {
       Creating the software from scratch was a huge challenge and allowed me to deepend my understanding of building a good application from start to avoid futur problems.',
       achievements: 'I learned and accomplished a lot during those two years at Arteris, but I mostly honed my skills in front-end and am now confident in being responsible for the front-end of an application, and even managing a small team of front-end developers as I had to guide an internship during 6 month.\n\
       If i had to chose, my biggest achievements would be to have recreated from scratch, to better fit our need, many angular material components, such as a complicated table, a tree explorer or a file-upload drag and drop zone.',
-      tech: ['Angular', 'Ngrx', 'RxJs', 'HTML', 'CSS', 'Git', 'TypeScript']
+      tech: ['Angular', 'RxJs', 'HTML', 'CSS', 'Git', 'TypeScript', 'Design Pattern']
     },
     {
       jobName: 'Angular Developer',
