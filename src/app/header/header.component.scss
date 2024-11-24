@@ -1,27 +1,35 @@
 .container {
-    background-color: #343a40;
+    background-color: #003366;
+    color: white;
     display: grid;
     grid-template-columns: 20% 50% 30%;
-    color: white;
-    padding: 0;
+    padding: 0 1em;
+    align-items: center;
+    border-radius: 1em;
     img {
-        width: 200px;
+        width: 100%;
+        clip-path: circle();
     }
     .contact {
         padding: 1em;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+        color: white;
+        fa-icon {
+            color: var(--accent);
+        }
     }
     .social {
         display: flex;
-        flex-direction: column;
         justify-content: space-evenly;
+        grid-gap: 1em;
+        margin-right: 2em;
+        color: var(--accent);
     }
     
     span {
         display: flex;
-        color: rgba(255, 255, 255, 0.5);
         font-size: 20px;
         p {
             margin: 0;
@@ -33,7 +41,7 @@
         }
     }
     a {
-        color: #538bc7;
+        color: white;
     }
 }
 

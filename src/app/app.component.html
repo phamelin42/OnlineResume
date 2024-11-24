@@ -9,27 +9,33 @@
   </header>
   
   <section class="summary">
-    <h1 *ngIf="lang === 'ENG'">Career summary</h1>
-    <h1 *ngIf="lang === 'FR'">Présentation</h1>
-    <p *ngIf="lang === 'ENG'">I am a self taught web developer with an experience of 7 years. I started as a simple integrator and i'm now focused on working with the framework Angular.<br>
-      I have 6 years of experience in Angular and i'm confident in my capability to develop organized and structured user interface using NgRx and Angular, aswell as being responsible for all decisions in Front-End.<br>
-      My main quality as a developer would be the organization and documentation I'm always doing when starting a project.<br>
-      Driven by the desire to learn more and further complete my knowledge, I am used to pressure and tight deadlines, I develop even better under some stress.<br>
-      Working with other developers and professional is a pleasure, I am pretty social and i'm sure I can fit in your team.
-    </p>
-    <p *ngIf="lang === 'FR'">Je suis un développeur web auto-didacte avec une expérience de 7 ans. J'ai commencé comme simple intégrateur et me concentre maintenant sur le framework Angular.<br>
-      Avec déjà 6 ans d'expérience avec Angular, je suis confiant en ma capacité à développer des interfaces organisés, structurés et user-friendly avec Angular, mais aussi à prendre la responsabilité des décisions en Front-Ends<br>
-      Ma qualité principale en tant que développeur est mon organisation et la documentation régulière que je produis quand je démarre un projet.<br>
-      Ma motivation principale est le désir d'apprendre et compléter mes connaissances. Je suis habitué à la pression des deadlines et développe encore mieux face à une situation stressante.<br>
-      Travailler avec d'autres développeurs et d'autres professionels est un plaisir. Je suis quelqu'un de sociable et je suis sûr que je pourrais m'adapter dans votre équipe sans problème ! 
-    </p>
+    @if (lang === 'ENG') {
+      <h1>Career summary</h1>
+      <p>I am a self taught web developer with an experience of 7 years. I started as a simple integrator and i'm now focused on working with the framework Angular.<br>
+        I am confident in my capability to develop organized and structured user interface, low maintenance code and efficient unit tests. I am also capable of being the owner and redactor of various documentations.<br>
+        My main quality as a developer would be the organization and documentation I'm always doing when starting a project.<br>
+        Driven by the desire to learn more and further complete my knowledge, I am used to pressure and tight deadlines, I develop even better under some stress.<br>
+        Working with other developers and professional is a pleasure, I am pretty social and i'm sure I can fit in your team.
+      </p>
+    } @else {
+      <h1>Présentation</h1>
+      <p>Je suis un développeur web auto-didacte avec une expérience de 7 ans. J'ai commencé comme simple intégrateur et me concentre maintenant sur le framework Angular.<br>
+        Je suis confiant en ma capacité à développer des interfaces organisées, structurées et user-friendly, du code de faible maintenance et des tests unitaires efficaces, mais aussi à prendre la responsabilité des différentes documentations.<br>
+        Ma qualité principale en tant que développeur est mon organisation et la documentation régulière que je produis quand je démarre un projet.<br>
+        Ma motivation principale est le désir d'apprendre et compléter mes connaissances. Je suis habitué à la pression des deadlines et développe encore mieux face à une situation stressante.<br>
+        Travailler avec d'autres développeurs et d'autres professionels est un plaisir. Je suis quelqu'un de sociable et je suis sûr que je pourrais m'adapter dans votre équipe sans problème ! 
+      </p>
+    }
   </section>
   
   <section class="content">
     <article class="experience">
-      <h1 *ngIf="lang === 'ENG'">Work Experience</h1>
-      <h1 *ngIf="lang === 'FR'">Expérience professionnelle</h1>
-      <ng-container *ngFor="let work of works">
+      @if (lang === 'ENG') {
+        <h1>Work Experience</h1> 
+      } @else {
+        <h1>Expérience professionnelle</h1>
+      }
+      @for (work of works; track work.jobName) {
         <app-work-experience [jobName]="work.jobName"
         [company]="work.company"
         [date]="work.date"
@@ -38,25 +44,27 @@
         [tech]="work.tech"
         [lang]="lang"
         ></app-work-experience>
-      </ng-container>
+      }
     </article>
-  
+    
     <aside class="aside">
-      <h1 *ngIf="lang === 'ENG'">Skills</h1>
-      <h1 *ngIf="lang === 'FR'">Compétences</h1>
+      <h1>Skills</h1>
       <app-skills [skills]="skills"></app-skills>
-      <h1 *ngIf="lang === 'ENG'">Languages</h1>
-      <h1 *ngIf="lang === 'FR'">Langages</h1>
+      <h1>Languages</h1>
       <app-language></app-language>
-      <!-- <h1>Education</h1>
-      <app-education></app-education> -->
-      <h1 *ngIf="lang === 'ENG'">Hobbies</h1>
-      <h1 *ngIf="lang === 'FR'">Passions</h1>
+      <h1>Hobbies</h1>
       <app-hobbies></app-hobbies>
     </aside>
   </section>
+  
 </div>
 
-<button *ngIf="!this.loading && lang === 'ENG'" (click)="download(container)">Download</button>
-<button *ngIf="!this.loading && lang === 'FR'" (click)="download(container)">Télécharger</button>
-<button *ngIf="this.loading"><div class="loader"></div></button>
+@if (!this.loading) {
+  @if (lang === 'ENG') {
+    <button (click)="download(container)">Download</button>
+  } @else {
+    <button (click)="download(container)">Télécharger</button>
+  }
+} @else {
+  <button><div class="loader"></div></button>
+}

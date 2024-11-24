@@ -11,7 +11,7 @@ export class WorkExperienceComponent implements OnInit {
   @Input() company: string = '';
   @Input() date: string = '';
   @Input() description: string = '';
-  @Input() achievements: string = '';
+  @Input() achievements: string | undefined = '';
   @Input() lang: string = 'ENG';
   @Input() tech: Array<string> = [];
   constructor() { }

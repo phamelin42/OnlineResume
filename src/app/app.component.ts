@@ -3,6 +3,15 @@ import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons';
 
+interface Work {
+  jobName: string;
+  company: string;
+  date: string;
+  description: string;
+  achievements?: string;
+  tech: Array<string>;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,16 +21,16 @@ export class AppComponent {
   title = 'OnlineResume';
   public lang: string = 'ENG';
   public loading: boolean = false;
-  public works: Array<{jobName: string, company: string, date: string, description: string, achievements: string, tech: Array<string>}> = [
+  public works: Array<Work> = [
     {
-      jobName: 'Angular Developer',
+      jobName: 'Software enginner',
       company: 'Arteris IP',
       date: 'May 2021 - Now',
       description: 'Arteris IP is in the industry of Semiconductors and Electronic Design Automation (EDA). In 2021, I joined a small team of 6 developers to build a new software from scratch using Angular 10. I mainly focused on building my skills in architecture, pattern designs and unit/e2e tests. \n\
       Creating the software from scratch was a huge challenge and allowed me to deepend my understanding of building a good application from start to avoid futur problems.',
-      achievements: 'I learned and accomplished a lot during those two years at Arteris, but I mostly honed my skills in front-end and am now confident in being responsible for the front-end of an application, and even managing a small team of front-end developers as I had to guide an internship during 6 month.\n\
-      If i had to chose, my biggest achievements would be to have recreated from scratch, to better fit our need, many angular material components, such as a complicated table, a tree explorer or a file-upload drag and drop zone.',
-      tech: ['Angular', 'RxJs', 'HTML', 'CSS', 'Git', 'TypeScript', 'Design Pattern']
+      // achievements: 'I learned and accomplished a lot during those two years at Arteris, but I mostly honed my skills in front-end and am now confident in being responsible for the front-end of an application, and even managing a small team of front-end developers as I had to guide an internship during 6 month.\n\
+      // If i had to chose, my biggest achievements would be to have recreated from scratch, to better fit our need, many angular material components, such as a complicated table, a tree explorer or a file-upload drag and drop zone.',
+      tech: ['Angular', 'RxJs', 'HTML', 'CSS', 'Git', 'TypeScript', 'Design Pattern', 'Unit testing', 'Yworks']
     },
     {
       jobName: 'Angular Developer',
@@ -29,8 +38,6 @@ export class AppComponent {
       date: 'Apr 2019 - Apr 2021',
       description: 'MGI is specialized in manufacturing industrial printers for Graphic arts, you can learn more on their website. Start of 2019, I joined a team of 2 back developer and one front developer with the goal of designing and creating a new HCI for all the machines produced by MGI.\n\
       An older version already existed, but nothing was already done in Angular, we started together from scratch and we now have more than 50 pages, 200 components and a solid back end.',
-      achievements: 'When thinking about my biggest achievement, there is one page that come to my mind. The user needed to visualize all the printhead available on the machine, their state, and their calibration. I had to develop a screen, where the user could, pan and zoom (tactil and mouse) on an infinite grid, select heads and move them on that same grid.\n\
-      It was a difficult challenge because I needed to work with matrices for the grid, and I needed to deepen my understanding of RxJS to handle user actions.',
       tech: ['Angular', 'Ngrx', 'RxJs', 'HTML', 'CSS', 'Git', 'TypeScript']
     },
     {
@@ -39,12 +46,10 @@ export class AppComponent {
       date: 'June 2018 - December 2018',
       description: 'In the context of my studies in school 42, I did an internship for Meltdown esports bar. Meltdown is a company owning many bars, worldwide, specialized in gaming. Each bar possess computers and console so you can play or watch a tournament while enjoying a beer.\n\
       They needed someone to help developing tribe.club (now closed), summerfestival.meltdown.bar, a temporary website, and finally, redesigning and redeveloping their old website, meltdown.bar. For 6 month I worked in close collaboration with designers, community managers and developers, to make the best possible website.',
-      achievements: 'My biggest achievement during that internship definitely was summerfestival.meltdown.bar. In collaboration with League of Legends, Meltdown organized a charity event for Make-A-Wish. For a whole week, events were happening in bars and some of the earning was donated to Make-A-Wish.\n\
-      Some streamers were also casting for the event. During that week, people could also donate on the website, wich was promoted on League Of Legends launcher. It was one of my first website, but it\'s definitely the one that got the most visit, and working with League Of Legends and streamers for a charity was very rewarding !',
       tech: ['Javascript', 'HTML', 'CSS', 'NodeJS', 'Git']
     },
   ];
-  public travaux: Array<{jobName: string, company: string, date: string, description: string, achievements: string, tech: Array<string>}> = [
+  public travaux: Array<Work> = [
     {
       jobName: 'Développeur Angular',
       company: 'Arteris IP',
@@ -71,23 +76,21 @@ export class AppComponent {
       date: 'Juin 2018 - Décembre 2018',
       description: 'Dans le context de mes études à l\'école 42, j\'ai réalisé un stage pour les bars Meltdown. Meltdown, c\'est une chaîne de bar gaming, exporté partout dans le monde. Chaque bar possède des ordinateurs et des consoles, afin que le client puisse jouer ou regarder un tournoi en profitant d\'une boisson\n\
       Ils avaient besoin d\'aide pour développer le site tribe.club, summerfestival.meltdown.bar, un site temporaire, et finalement, repensé et redéveloppé leur ancien site, meltdown.bar. Pendant 6 mois, j\'ai travaillé en étroite collaboration avec des désigneurs, community manager et développeurs afin de faire le meilleur site possible.',
-      achievements: 'Ma plus grande fierté pendant ce stage était sans conteste le site summerfestival.meltdown.bar. En collaboration avec League Of Legends, Make-A-Wish, et des streameurs français, les bars Meltdown ont organisé un évenement carritatif durant lequel une partie des gains du bar étaient reversé à l\'association.\n\
-      Pendant cet évenement, les gens pouvaient aussi faire des donations sur le site internet summerfestival.meltdown.bar, et ce dernier a été mis en avant sur le launcher League Of Legends, dans les bars, et sur différents stream. C\'était un de mes premiers sites internet, et probablement celui qui comptabilise le plus de visite. De plus, travailler pour une association caritative était très satisfaisant !',
       tech: ['Javascript', 'HTML', 'CSS', 'NodeJS', 'Git']
     },
   ];
   skills: Array<{name: string, value: number}> = [
     {
+      name: 'HTML',
+      value: 100,
+    },
+    {
+      name: 'CSS',
+      value: 100,
+    },
+    {
       name: 'Angular',
       value: 90,
-    },
-    {
-      name: 'Jest',
-      value: 60,
-    },
-    {
-      name: 'Unit testing',
-      value: 60,
     },
     {
       name: 'Typescript',
@@ -98,6 +101,18 @@ export class AppComponent {
       value: 90,
     },
     {
+      name: 'Unit testing',
+      value: 80,
+    },
+    {
+      name: 'Git',
+      value: 80,
+    },
+    {
+      name: 'Jest',
+      value: 70,
+    },
+    {
       name: 'NgRx',
       value: 70,
     },
@@ -106,21 +121,9 @@ export class AppComponent {
       value: 70,
     },
     {
-      name: 'Ramda',
+      name: 'Webpack',
       value: 40,
-    },
-    {
-      name: 'HTML',
-      value: 100,
-    },
-    {
-      name: 'CSS',
-      value: 90,
-    },
-    {
-      name: 'Git',
-      value: 70,
-    },
+    }
   ];
   faArrowDown = faArrowCircleDown;
 
@@ -139,7 +142,7 @@ export class AppComponent {
         let heightRatio = height / canvas.height
         let ratio = widthRatio > heightRatio ? heightRatio : widthRatio
 
-        doc.addImage(dataURL, 'JPEG', 0, 0, canvas.width * ratio, canvas.height * ratio)
+        doc.addImage(dataURL, 'JPEG', (width - canvas.width * ratio) / 2, 0, canvas.width * ratio, canvas.height * ratio)
         doc.text('This PDF was generated from https://www.online-resume.phamelin.fr/', 20, canvas.height * ratio + 20);
         doc.save('Phamelin_Resume.pdf');
         setTimeout(()=>{

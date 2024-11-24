@@ -1,5 +1,12 @@
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+
+:root {
+    --secondary: #E6F7FF!important;
+    --accent: #FF9900;
+    --background-color: #507eaf;
+    --title: #003366;
+    --text: #333333;
+    --subtext: rgba(0,0,0, 0.5);
+}
 
 body {
     margin: 0;
@@ -31,6 +38,9 @@ h5 {
     color: rgba(0, 0, 0, 0.5);
 }
 
+.progress-bar {
+    background-color: var(--accent)!important;
+}
 
 @media screen and (max-width: 576px) {
     
@@ -53,3 +63,5 @@ h5 {
         color: rgba(0, 0, 0, 0.5);
     }
 }
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

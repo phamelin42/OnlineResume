@@ -15,6 +15,7 @@
         display: flex;
         justify-content: space-between;
         align-items: baseline;
+        color: var(--title);
         &::before {
             content: "";
             display: inline-block;
@@ -23,7 +24,7 @@
             top: 5px;
             width: 15px;
             height: 15px;
-            border: 4px solid #538bc7;
+            border: 4px solid var(--title);
             background: white;
             border-radius: 50%;
         }
@@ -35,10 +36,11 @@
     .tech {
         display: flex;
         flex-wrap: wrap;
+        white-space: nowrap;
         .el {
             margin-right: 5px;
             width: min-content;
-            background-color: #538bc7;
+            background-color: var(--accent);
             color: white;
             border-radius: 2em;
             padding: 5px 10px;

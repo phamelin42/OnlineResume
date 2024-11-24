@@ -1,11 +1,3 @@
-ngb-progressbar {
-    &::ng-deep {
-        .bg-dark {
-            background-color: #538bc7!important;
-        }
-    }
-}
-
 @media screen and (max-width: 576px) {
     p {
         font-size: 12px;

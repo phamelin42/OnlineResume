@@ -2,18 +2,18 @@
     box-shadow: 1px 1px 5px #838c948f;
     margin: 0 auto;
     padding: 0;
+    border-radius: 1em;
     .header {
       position: relative;
     }
     h1 {
         text-transform: uppercase;
-        color: black;
         width: 100%;
         &::before {
             content:" ";
             position: absolute;
-            border-bottom: 1px solid #538bc7;
-            width: 100%;
+            border-bottom: 1px solid black;
+            width: 90%;
             height: 1.2em;
         }
     }
@@ -24,9 +24,10 @@
     }
     .content {
         display: grid;
-        grid-template-columns: 70% 25%;
-        grid-gap: 2em;
-        padding-bottom: 2em;
+        grid-template-columns: 75% 25%;
+        margin: 0;
+        margin-left: 1em;
+        margin-bottom: 1em;
         .experience {
             position: relative;
             overflow: hidden;
@@ -34,21 +35,34 @@
         .aside {
             display: flex;
             flex-direction: column;
+            background-color: #003366;
+            border-radius: 1em;
+            padding: 0.5em;
+            color: white;
         }
     }
 }
 
 button {
-    background-color: #538bc7;
+    background-color: var(--accent);
     padding: 0.2em 0.8em;
-    border: 1px solid #538bc7;
+    border-radius: 10px;
     outline: none;
     color: white;
     position: fixed;
-    right: 10px;
+    right: 5px;
     bottom: 10px;
     font-size: 24px;
-    border-radius: 3px;
+    border-radius: 10px;
+    border: 0;
+    -webkit-box-shadow: 3px 3px 5px 1px #000000; 
+    box-shadow: 3px 3px 5px 1px #000000;
+    &:hover {
+      transform: scale(1.05);
+    }
+    &:active {
+      transform: scale(1);
+    }
 }
 
 .lang {
@@ -125,7 +139,7 @@ button {
     content: '';
   }
   .loader:after {
-    background: #538bc7;
+    background: #003366;
     width: 75%;
     height: 75%;
     border-radius: 50%;
