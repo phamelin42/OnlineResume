@@ -50,10 +50,25 @@
 
 
 @media screen and (max-width: 576px) {
-    p {
-        font-size: 12px;
-    }
-    .achievements {
-        display: none;
+    .container {
+        .tech {
+            .el {
+                padding: 1px 5px;
+            }
+        }
+        p {
+            font-size: 12px;
+        }
+        .achievements {
+            display: none;
+        }
+        .content {
+            .role_description {
+                display: none;
+            }
+        }
+        h4 {
+            display: none;
+        }
     }
 }

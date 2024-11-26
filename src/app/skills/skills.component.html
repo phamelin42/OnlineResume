@@ -1,1 +1,8 @@
-<p *ngFor="let skill of skills">{{skill.name}}<ngb-progressbar type="dark" [value]="skill.value"></ngb-progressbar></p>
+@for (skill of skills; track skill.name) {
+    <span>
+        <p>{{skill.name}}</p>
+        <div class="progress_border">
+            <div class="progress" [ngStyle]="{ 'width': skill.value + '%' }"></div>
+        </div> 
+    </span>
+}
